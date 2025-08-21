@@ -36,3 +36,18 @@ enable_testing()
 add_executable(t_logger_basic tests/test_logger_basic.cpp)
 target_link_libraries(t_logger_basic PRIVATE logging_static pthread)
 add_test(NAME logger_basic COMMAND t_logger_basic)
+
+# udp sink петля
+add_executable(t_udp_sink tests/test_udp_sink.cpp)
+target_link_libraries(t_udp_sink PRIVATE logging_static pthread)
+add_test(NAME udp_sink COMMAND t_udp_sink)
+
+# ошибки инициализации
+add_executable(t_init_errors tests/test_init_errors.cpp)
+target_link_libraries(t_init_errors PRIVATE logging_static pthread)
+add_test(NAME init_errors COMMAND t_init_errors)
+
+# формат времени
+add_executable(t_timefmt tests/test_timefmt.cpp)
+target_link_libraries(t_timefmt PRIVATE logging_static pthread)
+add_test(NAME timefmt COMMAND t_timefmt)
