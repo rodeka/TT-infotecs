@@ -22,6 +22,14 @@ set_target_properties(logging_static PROPERTIES OUTPUT_NAME logging)
 add_library(logging_shared SHARED ${LOGGING_SOURCES})
 set_target_properties(logging_shared PROPERTIES OUTPUT_NAME logging)
 
+# приложения для логирования (часть 2)
+add_executable(log_app apps/log_app/main.cpp)
+target_link_libraries(log_app PRIVATE logging_static pthread)
+
+# приложение для сбора статистики (часть 3).
+add_executable(log_stats apps/log_stats/main.cpp)
+target_link_libraries(log_stats PRIVATE logging_static pthread)
+
 # tests
 enable_testing()
 
